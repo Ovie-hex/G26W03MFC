@@ -8,6 +8,12 @@
 
 class CMFCApplication1Doc : public CDocument
 {
+protected:
+	CPoint Point = CPoint(-100, -100);
+public:
+	CPoint GetPoint() { return Point; }
+	void SetPoint(CPoint p) { Point = p; }
+
 protected: // serialization에서만 만들어집니다.
 	CMFCApplication1Doc() noexcept;
 	DECLARE_DYNCREATE(CMFCApplication1Doc)
