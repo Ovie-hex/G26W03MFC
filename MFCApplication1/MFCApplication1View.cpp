@@ -29,6 +29,7 @@ BEGIN_MESSAGE_MAP(CMFCApplication1View, CView)
 	ON_COMMAND(ID_FILE_PRINT_PREVIEW, &CView::OnFilePrintPreview)
 	ON_WM_LBUTTONDOWN()
 	ON_WM_RBUTTONDOWN()
+	ON_WM_MOUSEMOVE()
 END_MESSAGE_MAP()
 
 // CMFCApplication1View 생성/소멸
@@ -130,4 +131,14 @@ void CMFCApplication1View::OnRButtonDown(UINT nFlags, CPoint point)
 	Invalidate();
 
 	CView::OnRButtonDown(nFlags, point);
+}
+
+void CMFCApplication1View::OnMouseMove(UINT nFlags, CPoint point)
+{
+	if (nFlags & MK_LBUTTON) {
+		GetDocument()->AddPoint(point);
+		Invalidate();
+	}
+
+	CView::OnMouseMove(nFlags, point);
 }
