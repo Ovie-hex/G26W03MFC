@@ -20,6 +20,13 @@ public:
 		SetModifiedFlag();
 	}
 
+	void RemoveLast() {
+		if (Points.GetCount() > 0) {
+			Points.RemoveAt(Points.GetCount() - 1);
+			SetModifiedFlag();
+		}
+	}
+
 protected: // serialization에서만 만들어집니다.
 	CMFCApplication1Doc() noexcept;
 	DECLARE_DYNCREATE(CMFCApplication1Doc)
