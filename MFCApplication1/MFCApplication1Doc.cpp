@@ -59,11 +59,11 @@ void CMFCApplication1Doc::Serialize(CArchive& ar)
 {
 	if (ar.IsStoring())
 	{
-
+		ar << Point;
 	}
 	else
 	{
-
+		ar >> Point;
 	}
 }
 
