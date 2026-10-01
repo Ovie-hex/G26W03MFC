@@ -45,7 +45,9 @@ BOOL CMFCApplication1Doc::OnNewDocument()
 
 	// TODO: 여기에 재초기화 코드를 추가합니다.
 	// SDI 문서는 이 문서를 다시 사용합니다.
-	Point = CPoint(-100, -100);
+	//Point = CPoint(-100, -100);
+
+	Points.RemoveAll();
 
 	return TRUE;
 }
@@ -57,14 +59,7 @@ BOOL CMFCApplication1Doc::OnNewDocument()
 
 void CMFCApplication1Doc::Serialize(CArchive& ar)
 {
-	if (ar.IsStoring())
-	{
-		ar << Point;
-	}
-	else
-	{
-		ar >> Point;
-	}
+	Points.Serialize(ar);
 }
 
 #ifdef SHARED_HANDLERS
