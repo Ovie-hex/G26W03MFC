@@ -77,6 +77,11 @@ void CMFCApplication1View::OnDraw(CDC* pDC)
 	memDC.FillSolidRect(rect, RGB(255, 255, 255));
 	//------------------------------------
 
+	for (int i = 0; i < pDoc->GetPointsCount(); i++) {
+		CPoint p = pDoc->GetPoint(i);
+		memDC.Ellipse(p.x - 30, p.y - 30, p.x + 30, p.y + 30);
+	}
+
 	// TODO: 여기에 원시 데이터에 대한 그리기 코드를 추가합니다.
 	//CPoint p = pDoc->GetPoint();
 	//pDC->Ellipse(p.x - 30, p.y - 30, p.x + 30, p.y + 30);
@@ -91,10 +96,7 @@ void CMFCApplication1View::OnDraw(CDC* pDC)
 	memDC.SelectObject(old);
 	//------------------------------------
 
-	for (int i = 0; i < pDoc->GetPointsCount(); i++) {
-		CPoint p = pDoc->GetPoint(i);
-		pDC->Ellipse(p.x - 30, p.y - 30, p.x + 30, p.y + 30);
-	}
+
 }
 
 
